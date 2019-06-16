@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buxingzhe5.github.io/</id>
     <title>Output</title>
-    <updated>2019-06-16T15:23:08.499Z</updated>
+    <updated>2019-06-16T15:25:37.332Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buxingzhe5.github.io/"/>
     <link rel="self" href="https://buxingzhe5.github.io//atom.xml"/>
@@ -11,16 +11,14 @@
     <icon>https://buxingzhe5.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Output</rights>
     <entry>
-        <title type="html"><![CDATA[# 真实的高阶函数[^ 笔记为《JavaScript ES6 函数式编程入门经典》第3.3章节]]]></title>
+        <title type="html"><![CDATA[真实的高阶函数[^ 笔记为《JavaScript ES6 函数式编程入门经典》第3.3章节]]]></title>
         <id>https://buxingzhe5.github.io//post/javascript-han-shu-shi-bian-cheng-bi-ji-1</id>
         <link href="https://buxingzhe5.github.io//post/javascript-han-shu-shi-bian-cheng-bi-ji-1">
         </link>
         <updated>2019-06-16T10:22:15.000Z</updated>
-        <summary type="html"><![CDATA[<p>{{TOC}}</p>
-<p>如果不用函数式编程，不过就是多写几个循环+判断。如果用了高阶函数，首先循环可以放到高阶函数的函数体中，而判断函数可以抽象成返回<code>boolen</code> 函数。实际使用中，最终只需要传入这个判断函数。而且，面对像<code>判断数组中的内容是否符合某个条件</code>这一类场景，都可以通过这个高阶函数进行构造。这就是函数式编程的强大之处，或者说抽象思想的强大之处。</p>
+        <summary type="html"><![CDATA[<p>如果不用函数式编程，不过就是多写几个循环+判断。如果用了高阶函数，首先循环可以放到高阶函数的函数体中，而判断函数可以抽象成返回<code>boolen</code> 函数。实际使用中，最终只需要传入这个判断函数。而且，面对像<code>判断数组中的内容是否符合某个条件</code>这一类场景，都可以通过这个高阶函数进行构造。这就是函数式编程的强大之处，或者说抽象思想的强大之处。</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>{{TOC}}</p>
-<p>如果不用函数式编程，不过就是多写几个循环+判断。如果用了高阶函数，首先循环可以放到高阶函数的函数体中，而判断函数可以抽象成返回<code>boolen</code> 函数。实际使用中，最终只需要传入这个判断函数。而且，面对像<code>判断数组中的内容是否符合某个条件</code>这一类场景，都可以通过这个高阶函数进行构造。这就是函数式编程的强大之处，或者说抽象思想的强大之处。</p>
+        <content type="html"><![CDATA[<p>如果不用函数式编程，不过就是多写几个循环+判断。如果用了高阶函数，首先循环可以放到高阶函数的函数体中，而判断函数可以抽象成返回<code>boolen</code> 函数。实际使用中，最终只需要传入这个判断函数。而且，面对像<code>判断数组中的内容是否符合某个条件</code>这一类场景，都可以通过这个高阶函数进行构造。这就是函数式编程的强大之处，或者说抽象思想的强大之处。</p>
 <!-- more -->
 <h2 id="isallmeetconditions-函数-原名every函数">isAllMeetConditions 函数[^ 原名every函数]</h2>
 <p>判断数据中的每一个项是否满足<code>fn</code>中返回的条件，只要有一个不满足就返回<code>false</code>，其中<code>fn</code> 是个判断函数。</p>
