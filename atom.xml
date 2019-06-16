@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buxingzhe5.github.io/</id>
-    <title>Output</title>
-    <updated>2019-06-16T15:27:39.093Z</updated>
+    <title>(Input) =&gt; {Output}</title>
+    <updated>2019-06-16T15:33:26.979Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buxingzhe5.github.io/"/>
     <link rel="self" href="https://buxingzhe5.github.io//atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>我像是一个函数，不过复杂点</subtitle>
     <logo>https://buxingzhe5.github.io//images/avatar.png</logo>
     <icon>https://buxingzhe5.github.io//favicon.ico</icon>
-    <rights>All rights reserved 2019, Output</rights>
+    <rights>All rights reserved 2019, (Input) =&gt; {Output}</rights>
     <entry>
         <title type="html"><![CDATA[真实的高阶函数]]></title>
         <id>https://buxingzhe5.github.io//post/javascript-han-shu-shi-bian-cheng-bi-ji-1</id>
