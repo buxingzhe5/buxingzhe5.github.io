@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buxingzhe5.github.io/</id>
     <title>Output</title>
-    <updated>2019-06-16T09:52:44.611Z</updated>
+    <updated>2019-06-16T09:53:21.705Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buxingzhe5.github.io/"/>
     <link rel="self" href="https://buxingzhe5.github.io//atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://buxingzhe5.github.io//images/avatar.png</logo>
     <icon>https://buxingzhe5.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Output</rights>
+    <entry>
+        <title type="html"><![CDATA[test gitalk]]></title>
+        <id>https://buxingzhe5.github.io//post/test-gitalk</id>
+        <link href="https://buxingzhe5.github.io//post/test-gitalk">
+        </link>
+        <updated>2019-06-16T09:53:01.000Z</updated>
+        <content type="html"><![CDATA[<p>test gitalk</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://buxingzhe5.github.io//post/hello-gridea</id>
