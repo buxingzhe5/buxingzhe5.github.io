@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buxingzhe5.github.io/</id>
     <title>(Input) =&gt; {Output}</title>
-    <updated>2019-06-16T15:33:26.979Z</updated>
+    <updated>2019-06-16T15:35:23.055Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buxingzhe5.github.io/"/>
     <link rel="self" href="https://buxingzhe5.github.io//atom.xml"/>
@@ -20,7 +20,10 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>如果不用函数式编程，不过就是多写几个循环+判断。如果用了高阶函数，首先循环可以放到高阶函数的函数体中，而判断函数可以抽象成返回<code>boolen</code> 函数。实际使用中，最终只需要传入这个判断函数。而且，面对像<code>判断数组中的内容是否符合某个条件</code>这一类场景，都可以通过这个高阶函数进行构造。这就是函数式编程的强大之处，或者说抽象思想的强大之处。</p>
 <!-- more -->
-<h2 id="isallmeetconditions-函数-原名every函数">isAllMeetConditions 函数[^ 原名every函数]</h2>
+<h2 id="isallmeetconditions-函数">isAllMeetConditions 函数</h2>
+<blockquote>
+<p>原名every函数</p>
+</blockquote>
 <p>判断数据中的每一个项是否满足<code>fn</code>中返回的条件，只要有一个不满足就返回<code>false</code>，其中<code>fn</code> 是个判断函数。</p>
 <pre><code class="language-javascript">const every = (arr, fn) =&gt; {
 	for(const value of arr) {
@@ -35,7 +38,10 @@ every([NaN, NaN, NaN], (d)=&gt;{return isNaN(d)})
 <li>书上叫做函数名字为 <strong><code>every</code></strong>，改为 <strong><code>isAllMeetConditions</code></strong></li>
 <li>书上对**<code>arr</code>** 进行全部遍历，修改为不满足条件的时候立即返回</li>
 </ol>
-<h2 id="isanymeetconditions-原名some函数">isAnyMeetConditions[^ 原名some函数]</h2>
+<h2 id="isanymeetconditions">isAnyMeetConditions</h2>
+<blockquote>
+<p>原名some函数</p>
+</blockquote>
 <p>更换<code>for</code>循环中的条件，只要<code>arr</code>中有一个为符合<code>fn</code>中的条件就返回<code>true</code></p>
 <pre><code class="language-javascript">const every = (arr, fn) =&gt; {
 	for(const value of arr) {
