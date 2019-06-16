@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://buxingzhe5.github.io//favicon.ico?v=1560699321078">
+<link rel="shortcut icon" href="https://buxingzhe5.github.io//favicon.ico?v=1560699631773">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://buxingzhe5.github.io//styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://buxingzhe5.github.io/">
-        <img class="avatar" src="https://buxingzhe5.github.io//images/avatar.png?v=1560699321078" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://buxingzhe5.github.io//images/avatar.png?v=1560699631773" alt="" width="32px" height="32px">
       </a>
       <a href="https://buxingzhe5.github.io/">
         <h1 class="site-title">(Input) =&gt; {Output}</h1>
@@ -120,10 +120,10 @@
 }
 every([NaN, NaN, NaN], (d)=&gt;{return isNaN(d)})
 </code></pre>
-<p>相比书本，做了以下修改：<em>‌</em></p>
+<p>相比书本，做了以下修改：</p>
 <ol>
 <li>书上叫做函数名字为 <strong><code>every</code></strong>，改为 <strong><code>isAllMeetConditions</code></strong></li>
-<li>书上对**<code>arr</code>** 进行全部遍历，修改为不满足条件的时候立即返回</li>
+<li>书上对 <strong><code>arr</code></strong> 进行全部遍历，修改为不满足条件的时候立即返回</li>
 </ol>
 <h2 id="isanymeetconditions">isAnyMeetConditions</h2>
 <blockquote>
@@ -140,14 +140,14 @@ every([NaN, NaN, NaN], (d)=&gt;{return isNaN(d)})
 </code></pre>
 <h2 id="sort">sort</h2>
 <p><code>arr.sort([compareFunction])</code>，实现比较函数<code>compareFunction</code>根据输入的参数进行比较。</p>
-<p>假如要写的这个函数叫sortBy，可以这样考虑：</p>
+<p>假如要写的这个函数叫<code>sortBy</code>，可以这样考虑：</p>
 <ol>
 <li><code>sortBy</code> 返回一个比较函数-&gt;写一个比较函数</li>
-<li>比较函数有一个参数<code>property</code>，即比较的属性值 -&gt;比较函数中的比较项是获取到<code>‌property</code> 的值的项</li>
+<li>比较函数有一个参数<code>property</code>，即比较的属性值 -&gt;比较函数中的比较项是获取到<code>property</code> 的值的项</li>
 <li>当sortBy被调用的时候，返回这个比较函数-&gt;返回这个比较函数，创建<code>sortBy</code>函数</li>
-<li>根据闭包，返回的函数能够访问到<code>‌property</code>-&gt;给<code>sortBy</code>函数传入<code>‌property</code></li>
+<li>根据闭包，返回的函数能够访问到<code>property</code>-&gt;给<code>sortBy</code>函数传入<code>property</code></li>
 </ol>
-<pre><code>const data = [
+<pre><code class="language-javascript">const data = [
     {category: &quot;Sporting Goods&quot;, price: 49.99, stocked: true, name: &quot;Football&quot;},
     {category: &quot;Sporting Goods&quot;, price: 9.99, stocked: true, name: &quot;Baseball&quot;},
     {category: &quot;Sporting Goods&quot;, price: 29.99, stocked: false, name: &quot;Basketball&quot;},
@@ -168,7 +168,7 @@ function sortBy(property) {
     }
 }
 
-data.sort(sortBy(sortBy));
+data.sort(sortBy(&quot;price&quot;));
 </code></pre>
 <blockquote>
 <p>《JavaScript ES6 函数式编程入门经典》第3.3章节
@@ -180,9 +180,9 @@ data.sort(sortBy(sortBy));
 
         
           <div class="next-post">
-            <a class="purple-link" href="https://buxingzhe5.github.io//post/hello-gridea">
+            <a class="purple-link" href="https://buxingzhe5.github.io//post/about">
               <h3 class="post-title">
-                下一篇：Hello Gridea
+                下一篇：关于
               </h3>
             </a>
           </div>
