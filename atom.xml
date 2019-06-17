@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buxingzhe5.github.io/</id>
     <title>(Input) =&gt; {Output}</title>
-    <updated>2019-06-17T13:22:34.874Z</updated>
+    <updated>2019-06-17T14:46:01.788Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buxingzhe5.github.io/"/>
     <link rel="self" href="https://buxingzhe5.github.io//atom.xml"/>
@@ -11,12 +11,57 @@
     <icon>https://buxingzhe5.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, (Input) =&gt; {Output}</rights>
     <entry>
+        <title type="html"><![CDATA[真实的高阶函数（2）]]></title>
+        <id>https://buxingzhe5.github.io//post/zhen-shi-de-gao-jie-han-shu-2</id>
+        <link href="https://buxingzhe5.github.io//post/zhen-shi-de-gao-jie-han-shu-2">
+        </link>
+        <updated>2019-06-17T14:44:01.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="真实的高阶函数2">真实的高阶函数（2）</h1>
+<p>了解一下闭包，会对高阶函数有更深刻的理解。</p>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="真实的高阶函数2">真实的高阶函数（2）</h1>
+<p>了解一下闭包，会对高阶函数有更深刻的理解。</p>
+<!-- more -->
+<h2 id="闭包">闭包</h2>
+<p>闭包（闭包函数）即在一个函数内部的函数。它可访问的作用域有三种：</p>
+<ul>
+<li>在它自身声明的遍历</li>
+<li>全局变量的访问</li>
+<li><strong>对外部函数变量的访问</strong> 外部函数指的是包裹闭包函数的函数，如下<code>‌fn</code>。</li>
+</ul>
+<p>其中第三种是很有价值的，举例如下：</p>
+<pre><code class="language-javascript">var fn = (arg) =&gt; {
+let outer = &quot;visible&quot;;
+let innerFn = () =&gt; {
+	console.log(outer)
+	console.log(arg)
+}
+	return innerFn
+}
+
+var closureFn = fn(5);
+closureFn() // visible 5
+</code></pre>
+<p>它的价值在于，当你调用<code>fn（arg）</code>的时候，返回的函数<code>‌innerfn</code>，在它的上下文中持有arg的值，它记住了<code>fn</code>的上下文。</p>
+<h2 id="unary">unary</h2>
+<p>将多参数的函数转换为只接受一个参数的函数。</p>
+<p>举例：<code>['1', '2', '3'].map(parseInt)</code> 查了下<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map">资料</a>：</p>
+<p><code>parseInt</code> 接受两个参数 <code>（string, radix）</code>，<code>string</code>，被解析的值，<code>radix</code> 基数，通常将值默认为10；<code>Array.prototype.map</code>方法在调用<code>callback</code>函数时,会给它传递三个参数:当前正在遍历的元素, 元素索引, 原数组本身。即<code>parseInt</code>会把传过来的索引值当成进制数来使用。这会返回<code>NaN</code>。</p>
+<p>所以要把<code>parseInt</code> 转变为接受一个参数的函数。函数<code>unary</code>做了这件事。</p>
+<pre><code class="language-javascript">const unary = (fn) =&gt; {
+		return fn.length === 1 ? fn : (arg) =&gt; fn(arg)
+}
+</code></pre>
+<p>《未完》</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[真实的高阶函数(1)]]></title>
         <id>https://buxingzhe5.github.io//post/javascript-han-shu-shi-bian-cheng-bi-ji-1</id>
         <link href="https://buxingzhe5.github.io//post/javascript-han-shu-shi-bian-cheng-bi-ji-1">
         </link>
         <updated>2019-06-16T10:22:15.000Z</updated>
-        <content type="html"><![CDATA[<p>函数将循环功能封装出来。实际使用中，最终只需要传入这个判断函数。面对像判断数组中的内容是否符合某个条件`场景，可以通过这个函数构造。</p>
+        <content type="html"><![CDATA[<p>函数将循环功能封装出来。实际使用中，最终只需要传入这个判断函数。面对像<code>判断数组中的内容是否符合某个条件</code>场景，可以通过这个函数构造。</p>
 <h2 id="isallmeetconditions-函数">isAllMeetConditions 函数</h2>
 <p>判断数据中的每一个项是否满足<code>fn</code>中返回的条件，只要有一个不满足就返回<code>false</code>，其中<code>fn</code> 是个判断函数。</p>
 <pre><code class="language-javascript">const isAllMeetConditions = (arr, fn) =&gt; {
@@ -75,15 +120,6 @@ function sortBy(property) {
 data.sort(sortBy(&quot;price&quot;));
 </code></pre>
 <p>《完》</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[关于]]></title>
-        <id>https://buxingzhe5.github.io//post/about</id>
-        <link href="https://buxingzhe5.github.io//post/about">
-        </link>
-        <updated>2019-01-25T11:09:48.000Z</updated>
-        <content type="html"><![CDATA[<p>抽象的思想如此伟大</p>
 ]]></content>
     </entry>
 </feed>
