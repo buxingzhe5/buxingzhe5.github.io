@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buxingzhe5.github.io/</id>
     <title>(Input) =&gt; {Output}</title>
-    <updated>2019-06-17T14:49:54.343Z</updated>
+    <updated>2019-06-17T14:52:28.850Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buxingzhe5.github.io/"/>
     <link rel="self" href="https://buxingzhe5.github.io//atom.xml"/>
@@ -121,6 +121,23 @@ function sortBy(property) {
 data.sort(sortBy(&quot;price&quot;));
 </code></pre>
 <p>《完》</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[自言自语]]></title>
+        <id>https://buxingzhe5.github.io//post/about</id>
+        <link href="https://buxingzhe5.github.io//post/about">
+        </link>
+        <updated>2019-01-25T11:09:48.000Z</updated>
+        <summary type="html"><![CDATA[<p>谁会在乎一个自言自语的家伙呢。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>谁会在乎一个自言自语的家伙呢。</p>
+<!-- more -->
+<ul>
+<li>抽象的思想如此伟大</li>
+<li>在学习中思考的时候，也是在思考自己。</li>
+<li>人像一个函数（）=&gt; {}</li>
+</ul>
 ]]></content>
     </entry>
 </feed>
