@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buxingzhe5.github.io/</id>
     <title>(Input) =&gt; {Output}</title>
-    <updated>2019-06-16T15:45:14.358Z</updated>
+    <updated>2019-06-17T13:22:34.874Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buxingzhe5.github.io/"/>
     <link rel="self" href="https://buxingzhe5.github.io//atom.xml"/>
@@ -11,21 +11,15 @@
     <icon>https://buxingzhe5.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, (Input) =&gt; {Output}</rights>
     <entry>
-        <title type="html"><![CDATA[真实的高阶函数]]></title>
+        <title type="html"><![CDATA[真实的高阶函数(1)]]></title>
         <id>https://buxingzhe5.github.io//post/javascript-han-shu-shi-bian-cheng-bi-ji-1</id>
         <link href="https://buxingzhe5.github.io//post/javascript-han-shu-shi-bian-cheng-bi-ji-1">
         </link>
         <updated>2019-06-16T10:22:15.000Z</updated>
-        <summary type="html"><![CDATA[<p>如果不用函数式编程，不过就是多写几个循环+判断。如果用了高阶函数，首先循环可以放到高阶函数的函数体中，而判断函数可以抽象成返回<code>boolen</code> 函数。实际使用中，最终只需要传入这个判断函数。而且，面对像<code>判断数组中的内容是否符合某个条件</code>这一类场景，都可以通过这个高阶函数进行构造。这就是函数式编程的强大之处，或者说抽象思想的强大之处。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>如果不用函数式编程，不过就是多写几个循环+判断。如果用了高阶函数，首先循环可以放到高阶函数的函数体中，而判断函数可以抽象成返回<code>boolen</code> 函数。实际使用中，最终只需要传入这个判断函数。而且，面对像<code>判断数组中的内容是否符合某个条件</code>这一类场景，都可以通过这个高阶函数进行构造。这就是函数式编程的强大之处，或者说抽象思想的强大之处。</p>
-<!-- more -->
+        <content type="html"><![CDATA[<p>函数将循环功能封装出来。实际使用中，最终只需要传入这个判断函数。面对像判断数组中的内容是否符合某个条件`场景，可以通过这个函数构造。</p>
 <h2 id="isallmeetconditions-函数">isAllMeetConditions 函数</h2>
-<blockquote>
-<p>原名every函数</p>
-</blockquote>
 <p>判断数据中的每一个项是否满足<code>fn</code>中返回的条件，只要有一个不满足就返回<code>false</code>，其中<code>fn</code> 是个判断函数。</p>
-<pre><code class="language-javascript">const every = (arr, fn) =&gt; {
+<pre><code class="language-javascript">const isAllMeetConditions = (arr, fn) =&gt; {
 	for(const value of arr) {
 		if(!fn(value)) {return false}
 	}
@@ -33,17 +27,14 @@
 }
 every([NaN, NaN, NaN], (d)=&gt;{return isNaN(d)})
 </code></pre>
-<p>相比书本，做了以下修改：</p>
+<p>相比书本，做了以下修改：<em>‌</em></p>
 <ol>
 <li>书上叫做函数名字为 <strong><code>every</code></strong>，改为 <strong><code>isAllMeetConditions</code></strong></li>
-<li>书上对 <strong><code>arr</code></strong> 进行全部遍历，修改为不满足条件的时候立即返回</li>
+<li>书上对**<code>arr</code>** 进行全部遍历，修改为不满足条件的时候立即返回</li>
 </ol>
 <h2 id="isanymeetconditions">isAnyMeetConditions</h2>
-<blockquote>
-<p>原名some函数</p>
-</blockquote>
 <p>更换<code>for</code>循环中的条件，只要<code>arr</code>中有一个为符合<code>fn</code>中的条件就返回<code>true</code></p>
-<pre><code class="language-javascript">const every = (arr, fn) =&gt; {
+<pre><code class="language-javascript">const isAnyMeetConditions = (arr, fn) =&gt; {
 	for(const value of arr) {
 		if(fn(value)) {return true}
 	}
@@ -53,14 +44,14 @@ every([NaN, NaN, NaN], (d)=&gt;{return isNaN(d)})
 </code></pre>
 <h2 id="sort">sort</h2>
 <p><code>arr.sort([compareFunction])</code>，实现比较函数<code>compareFunction</code>根据输入的参数进行比较。</p>
-<p>假如要写的这个函数叫<code>sortBy</code>，可以这样考虑：</p>
+<p>假如要写的这个函数叫sortBy，可以这样考虑：</p>
 <ol>
 <li><code>sortBy</code> 返回一个比较函数-&gt;写一个比较函数</li>
-<li>比较函数有一个参数<code>property</code>，即比较的属性值 -&gt;比较函数中的比较项是获取到<code>property</code> 的值的项</li>
+<li>比较函数有一个参数<code>property</code>，即比较的属性值 -&gt;比较函数中的比较项是获取到<code>‌property</code> 的值的项</li>
 <li>当sortBy被调用的时候，返回这个比较函数-&gt;返回这个比较函数，创建<code>sortBy</code>函数</li>
-<li>根据闭包，返回的函数能够访问到<code>property</code>-&gt;给<code>sortBy</code>函数传入<code>property</code></li>
+<li>根据闭包，返回的函数能够访问到<code>‌property</code>-&gt;给<code>sortBy</code>函数传入<code>‌property</code>.</li>
 </ol>
-<pre><code class="language-javascript">const data = [
+<pre><code>const data = [
     {category: &quot;Sporting Goods&quot;, price: 49.99, stocked: true, name: &quot;Football&quot;},
     {category: &quot;Sporting Goods&quot;, price: 9.99, stocked: true, name: &quot;Baseball&quot;},
     {category: &quot;Sporting Goods&quot;, price: 29.99, stocked: false, name: &quot;Basketball&quot;},
@@ -83,10 +74,7 @@ function sortBy(property) {
 
 data.sort(sortBy(&quot;price&quot;));
 </code></pre>
-<blockquote>
-<p>《JavaScript ES6 函数式编程入门经典》第3.3章节
-完。</p>
-</blockquote>
+<p>《完》</p>
 ]]></content>
     </entry>
     <entry>
