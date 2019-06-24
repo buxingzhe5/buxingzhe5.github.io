@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buxingzhe5.github.io/</id>
     <title>(Input) =&gt; {Output}</title>
-    <updated>2019-06-17T14:52:28.850Z</updated>
+    <updated>2019-06-24T11:29:33.509Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buxingzhe5.github.io/"/>
     <link rel="self" href="https://buxingzhe5.github.io//atom.xml"/>
@@ -11,21 +11,110 @@
     <icon>https://buxingzhe5.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, (Input) =&gt; {Output}</rights>
     <entry>
+        <title type="html"><![CDATA[数组的函数式编程]]></title>
+        <id>https://buxingzhe5.github.io//post/shu-zu-de-han-shu-shi-bian-cheng</id>
+        <link href="https://buxingzhe5.github.io//post/shu-zu-de-han-shu-shi-bian-cheng">
+        </link>
+        <updated>2019-06-23T11:23:04.000Z</updated>
+        <summary type="html"><![CDATA[<p>面向数组进行的操作，包括投影、过滤、规约、降维、合并。他们的参数都是array、fn，返回的结果大都是数组。其中的fn，每一种操作对函数的要求不同。。。这个要意会。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>面向数组进行的操作，包括投影、过滤、规约、降维、合并。他们的参数都是array、fn，返回的结果大都是数组。其中的fn，每一种操作对函数的要求不同。。。这个要意会。</p>
+<!-- more -->
+<p>投影：把函数应用于一个值并创建一个值的过程叫做投影，该函数为投影函数。</p>
+<h2 id="map">map</h2>
+<p>让fn把数组中的每一项作为参数执行，将执行的结果放到一个数组中返回。</p>
+<pre><code>const map = (array, fn) =&gt; {
+    let results = [];
+    for (const a of array) {
+        results.push(fn(a))
+    }
+    return results;
+}
+
+const m = map([1,2,3], (n) =&gt; n*n)
+console.log(m)
+</code></pre>
+<h2 id="filter">filter</h2>
+<p>与map的区别是，fn函数是一个判断函数，只有判断函数范围值为true（false）的才能返回。</p>
+<pre><code>const filter = (array, fn) =&gt; {
+    let results = [];
+    for (const a of array) {
+        fn(a) ? results.push(fn(a)) : undefind
+    }
+    return results;
+}
+
+const m = map([1,2,3], (n) =&gt; n*n)
+console.log(m)
+</code></pre>
+<h2 id="concatall">concatAll</h2>
+<p>&lt;待完成&gt;</p>
+<h2 id="reduce">reduce</h2>
+<p>规约数组：遍历数组并生成一个单一元素的过程</p>
+<pre><code>const reduce = (array, fn, initialValue) =&gt; {
+    let accumulator;
+    if (initialValue === undefined) {
+        accumulator = array[0]
+        for (var i = 1; i &lt; array.length; i++) {
+            accumulator = fn(accumulator, array[i])
+        }
+    } else {
+        accumulator = initialValue;
+        for (const value of array) {
+            accumulator = fn(accumulator, value)
+        }
+    }
+    return accumulator
+}
+</code></pre>
+<p>参数函数对数组中的每个值及初始值进行的操作。</p>
+<pre><code>const data = [
+    { category: &quot;Sporting Goods&quot;, price: 49.99, stocked: true, name: &quot;Football&quot; },
+    { category: &quot;Sporting Goods&quot;, price: 9.99, stocked: true, name: &quot;Baseball&quot; },
+    { category: &quot;Sporting Goods&quot;, price: 29.99, stocked: false, name: &quot;Basketball&quot; },
+    { category: &quot;Electronics&quot;, price: 99.99, stocked: true, name: &quot;iPod Touch&quot; },
+    { category: &quot;Electronics&quot;, price: 399.99, stocked: false, name: &quot;iPhone 5&quot; },
+    { category: &quot;Electronics&quot;, price: 199.99, stocked: true, name: &quot;Nexus 7&quot; },
+];
+
+const categoryNum = reduce(data, (accumulator, d) =&gt; {
+    console.log(d)
+    let ElectronicsNumTemp = d.category === 'Electronics' ? 1 : 0;
+    let SportingGoodsNumTemp = d.category === 'Sporting Goods' ? 1 : 0;
+    return {
+        ElectronicsNum: accumulator.ElectronicsNum + ElectronicsNumTemp,
+        SportingGoodsNum: accumulator.SportingGoodsNum + SportingGoodsNumTemp
+    }
+}, { ElectronicsNum: 0, SportingGoodsNum: 0 })
+</code></pre>
+<h2 id="zip">zip</h2>
+<p>zip是拉链的意思，拉链把两侧的链条合合并在一起。对于操作两个数组的场景，这个名字非常形象。</p>
+<pre><code>const zip = (leftArray, rightArray, fn) =&gt; {
+    let results= [];
+    for(let i = 0; i &lt; Math.min(leftArray.length, rightArray.length); i++) {
+        results.push(fn(leftArray[i], rightArray[i]))
+    }
+    return results
+}
+
+const z = zip([1,2,3], [3,2,1], (x, y) =&gt; x+y)
+console.log(z)
+</code></pre>
+<p>&lt;未完&gt;</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[真实的高阶函数（2）]]></title>
         <id>https://buxingzhe5.github.io//post/zhen-shi-de-gao-jie-han-shu-2</id>
         <link href="https://buxingzhe5.github.io//post/zhen-shi-de-gao-jie-han-shu-2">
         </link>
         <updated>2019-06-17T14:44:01.000Z</updated>
-        <summary type="html"><![CDATA[<p>了解一下闭包，会对高阶函数有更深刻的理解。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>了解一下闭包，会对高阶函数有更深刻的理解。</p>
-<!-- more -->
-<h2 id="闭包">闭包</h2>
+        <content type="html"><![CDATA[<h2 id="闭包">闭包</h2>
 <p>闭包（闭包函数）即在一个函数内部的函数。它可访问的作用域有三种：</p>
 <ul>
 <li>在它自身声明的遍历</li>
 <li>全局变量的访问</li>
-<li><strong>对外部函数变量的访问</strong> 外部函数指的是包裹闭包函数的函数，如下<code>‌fn</code>。</li>
+<li><strong>对外部函数变量的访问</strong> 外部函数指的是包裹闭包函数的函数，如下<code>fn</code>。</li>
 </ul>
 <p>其中第三种是很有价值的，举例如下：</p>
 <pre><code class="language-javascript">var fn = (arg) =&gt; {
@@ -50,7 +139,36 @@ closureFn() // visible 5
 		return fn.length === 1 ? fn : (arg) =&gt; fn(arg)
 }
 </code></pre>
-<p>《未完》</p>
+<h2 id="once">once</h2>
+<p>保障函数只执行一次。</p>
+<pre><code>const once = (fn) =&gt; {
+    let done = false;
+    return function() {
+        return done ? undefined : ((done = true), fn.apply(this, arguments))
+    }
+}
+
+const doPayment = once(() =&gt; {
+    console.log(&quot;payment is done&quot;)
+})
+</code></pre>
+<h2 id="memoized">memoized</h2>
+<p>将函数计算的结果存储起来。为什么能做到将函数计算的结果存储起来？
+因为fn是递归函数，所以可以将递归函数的值存储，以备下次直接读取使用。</p>
+<pre><code>var memoized = (fn) =&gt; {
+    lookupValue = {}
+    return (arg) =&gt; lookupValue[arg] || (lookupValue[arg] = fn(arg))
+}
+
+// 返回true的值
+
+var fastFactorial = memoized((n) =&gt; {
+    if (n===0) {return 1}
+    return n * fastFactorial(n-1);
+})
+
+</code></pre>
+<p>&lt;完&gt;</p>
 ]]></content>
     </entry>
     <entry>
@@ -121,23 +239,6 @@ function sortBy(property) {
 data.sort(sortBy(&quot;price&quot;));
 </code></pre>
 <p>《完》</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[自言自语]]></title>
-        <id>https://buxingzhe5.github.io//post/about</id>
-        <link href="https://buxingzhe5.github.io//post/about">
-        </link>
-        <updated>2019-01-25T11:09:48.000Z</updated>
-        <summary type="html"><![CDATA[<p>谁会在乎一个自言自语的家伙呢。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>谁会在乎一个自言自语的家伙呢。</p>
-<!-- more -->
-<ul>
-<li>抽象的思想如此伟大</li>
-<li>在学习中思考的时候，也是在思考自己。</li>
-<li>人像一个函数（）=&gt; {}</li>
-</ul>
 ]]></content>
     </entry>
 </feed>

@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://buxingzhe5.github.io//favicon.ico?v=1560783147881">
+<link rel="shortcut icon" href="https://buxingzhe5.github.io//favicon.ico?v=1561375771139">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://buxingzhe5.github.io//styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://buxingzhe5.github.io/">
-        <img class="avatar" src="https://buxingzhe5.github.io//images/avatar.png?v=1560783147881" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://buxingzhe5.github.io//images/avatar.png?v=1561375771139" alt="" width="32px" height="32px">
       </a>
       <a href="https://buxingzhe5.github.io/">
         <h1 class="site-title">(Input) =&gt; {Output}</h1>
@@ -105,14 +105,12 @@
             
           </div>
           <div class="post-content">
-            <p>了解一下闭包，会对高阶函数有更深刻的理解。</p>
-<!-- more -->
-<h2 id="闭包">闭包</h2>
+            <h2 id="闭包">闭包</h2>
 <p>闭包（闭包函数）即在一个函数内部的函数。它可访问的作用域有三种：</p>
 <ul>
 <li>在它自身声明的遍历</li>
 <li>全局变量的访问</li>
-<li><strong>对外部函数变量的访问</strong> 外部函数指的是包裹闭包函数的函数，如下<code>‌fn</code>。</li>
+<li><strong>对外部函数变量的访问</strong> 外部函数指的是包裹闭包函数的函数，如下<code>fn</code>。</li>
 </ul>
 <p>其中第三种是很有价值的，举例如下：</p>
 <pre><code class="language-javascript">var fn = (arg) =&gt; {
@@ -137,7 +135,36 @@ closureFn() // visible 5
 		return fn.length === 1 ? fn : (arg) =&gt; fn(arg)
 }
 </code></pre>
-<p>《未完》</p>
+<h2 id="once">once</h2>
+<p>保障函数只执行一次。</p>
+<pre><code>const once = (fn) =&gt; {
+    let done = false;
+    return function() {
+        return done ? undefined : ((done = true), fn.apply(this, arguments))
+    }
+}
+
+const doPayment = once(() =&gt; {
+    console.log(&quot;payment is done&quot;)
+})
+</code></pre>
+<h2 id="memoized">memoized</h2>
+<p>将函数计算的结果存储起来。为什么能做到将函数计算的结果存储起来？
+因为fn是递归函数，所以可以将递归函数的值存储，以备下次直接读取使用。</p>
+<pre><code>var memoized = (fn) =&gt; {
+    lookupValue = {}
+    return (arg) =&gt; lookupValue[arg] || (lookupValue[arg] = fn(arg))
+}
+
+// 返回true的值
+
+var fastFactorial = memoized((n) =&gt; {
+    if (n===0) {return 1}
+    return n * fastFactorial(n-1);
+})
+
+</code></pre>
+<p>&lt;完&gt;</p>
 
           </div>
         </div>
