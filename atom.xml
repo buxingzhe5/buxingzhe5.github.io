@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://buxingzhe5.github.io/</id>
     <title>(Input) =&gt; {Output}</title>
-    <updated>2019-06-24T11:29:33.509Z</updated>
+    <updated>2019-06-24T11:57:52.622Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://buxingzhe5.github.io/"/>
     <link rel="self" href="https://buxingzhe5.github.io//atom.xml"/>
@@ -109,6 +109,14 @@ console.log(z)
         <link href="https://buxingzhe5.github.io//post/zhen-shi-de-gao-jie-han-shu-2">
         </link>
         <updated>2019-06-17T14:44:01.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="闭包">闭包</h2>
+<p>闭包（闭包函数）即在一个函数内部的函数。它可访问的作用域有三种：</p>
+<ul>
+<li>在它自身声明的遍历</li>
+<li>全局变量的访问</li>
+<li><strong>对外部函数变量的访问</strong> 外部函数指的是包裹闭包函数的函数，如下<code>fn</code>。</li>
+</ul>
+]]></summary>
         <content type="html"><![CDATA[<h2 id="闭包">闭包</h2>
 <p>闭包（闭包函数）即在一个函数内部的函数。它可访问的作用域有三种：</p>
 <ul>
@@ -116,6 +124,7 @@ console.log(z)
 <li>全局变量的访问</li>
 <li><strong>对外部函数变量的访问</strong> 外部函数指的是包裹闭包函数的函数，如下<code>fn</code>。</li>
 </ul>
+<!-- more -->
 <p>其中第三种是很有价值的，举例如下：</p>
 <pre><code class="language-javascript">var fn = (arg) =&gt; {
 let outer = &quot;visible&quot;;
